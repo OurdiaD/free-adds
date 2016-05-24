@@ -1,0 +1,44 @@
+/*.form-control{
+    width : 50%;
+    margin : auto;
+}
+input{
+    margin : auto;
+}*/
+form{
+    width : 50%;
+    margin : auto;
+}
+.article{
+    width : 50%;
+    display: block;
+    background-color: rgba(62, 83, 165, 0.84);
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+}
+
+.article p{
+    background-color: rgba(62, 83, 52, 0.84);
+    border-radius: 10px;
+}
+
+
+.des{
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+}
+body{
+    margin-top: 100px;
+}
+h2, h1, h3{
+    text-align: center;
+    
+}
+img{
+    width: 200px;
+}
+.img{
+    margin: auto;
+    display: block;
+}
