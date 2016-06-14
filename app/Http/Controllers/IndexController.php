@@ -88,37 +88,33 @@ class IndexController extends Controller
      */
     public function recherche()
     {
-        $nom = Input::get('titre');
-        $lieu = Input::get('localisation');
-        $categorie = Input::get('categorie');
+       
 
-        $nom = \Request::get('titre');
-        $lieu = \Request::get('lieu');
-        $categorie = \Request::get('categorie');
+        $results = DB::table('annonces')
+            ->join('users', 'users.id', '=', 'annonces.user_id')
+            ->select('annonces.images', 'annonces.id', 'annonces.titre', 'annonces.description', 'annonces.prix', 'annonces.created_at', 'users.username')
+            ->where('annonces.activate', '=', 1)
+            ->where(function ($q) {
+                $nom = \Request::get('titre');
+                $lieu = \Request::get('localisation');
+                $categorie = \Request::get('categorie');
+                if (Input::has('titre') || $nom!='') {
+                    $q->where('annonces.titre', 'like', '%'.$nom.'%');
+                }
+                if (Input::has('lieu') || $lieu!='') {
+                    $q->where('annonces.lieu', '=', $lieu);
+                }
 
-        $results = DB::table('annonces');
-            $results->join('users', 'users.id', '=', 'annonces.user_id');
-            $results->select('annonces.images', 'annonces.id', 'annonces.titre', 'annonces.description', 'annonces.prix', 'annonces.created_at', 'users.username');
-            $results->where('annonces.activate', '=', 1);
-
-            if (Input::has('find') || $nom!='') {
-            $results->where('annonces.titre', 'like', '%'.$nom.'%');
-            }
-
-            if (Input::has('localisation') || $lieu!='') {
-            $results->where('annonces.lieu', '=', $lieu);
-            }
-
-            if (Input::has('categorie') || $categorie!='') {
-            $results->where('annonces.categorie', '=', $categorie);
-            }
+                if (Input::has('categorie') || $categorie!='') {
+                    $q->where('annonces.categorie', '=', $categorie);
+                }
+            })
 
 
-            $results->orderBy('annonces.updated_at', 'desc');
-            $results->paginate(10);
+            ->orderBy('annonces.updated_at', 'desc')
+            ->paginate(10);
             
-            //$results->get();
-            die(var_dump($results));
+            
 
         return View::make('index')->with('annonces', $results);
     }

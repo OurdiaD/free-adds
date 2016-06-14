@@ -14,7 +14,7 @@ class AddImagesAnnonces extends Migration {
 	{
 		Schema::table('annonces', function($table)
 		{
-		    $table->string('images');
+		    $table->string('images')->nullable();
 		});
 	}
 

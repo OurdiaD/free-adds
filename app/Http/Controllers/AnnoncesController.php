@@ -67,6 +67,10 @@ class AnnoncesController extends Controller
         
 
         //$results = DB::select('select id from annonces where titre = ? and description = ? order by created_at desc limit 1', [$titre, $des]);
+        if (Input::file('image')[0] == null) {
+            $annonce->images = '';
+        }
+
         if (Input::file('image')[0] != null) {
         
             $destinationPath = 'uploads/'; 
