@@ -88,8 +88,6 @@ class IndexController extends Controller
      */
     public function recherche()
     {
-       
-
         $results = DB::table('annonces')
             ->join('users', 'users.id', '=', 'annonces.user_id')
             ->select('annonces.images', 'annonces.id', 'annonces.titre', 'annonces.description', 'annonces.prix', 'annonces.created_at', 'users.username')
@@ -110,12 +108,9 @@ class IndexController extends Controller
                 }
             })
 
-
             ->orderBy('annonces.updated_at', 'desc')
             ->paginate(10);
             
-            
-
         return View::make('index')->with('annonces', $results);
     }
 }
