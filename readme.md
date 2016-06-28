@@ -25,6 +25,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 Project Screenshots
 ----------
-![free-ads](https://raw.githubusercontent.com/OurdiaD/free-ads/images/index_free-ads.PNG)
-![free-ads](https://raw.githubusercontent.com/OurdiaD/free-ads/images/recherche_free-ads.PNG)
-![free-ads](https://raw.githubusercontent.com/OurdiaD/free-ads/images/messagerie_free-ads.PNG)
+![free-ads](https://raw.githubusercontent.com/OurdiaD/free-ads/master/images/index_free-ads.PNG)
+![free-ads](https://raw.githubusercontent.com/OurdiaD/free-ads/master/images/recherche_free-ads.PNG)
+![free-ads](https://raw.githubusercontent.com/OurdiaD/free-ads/master/images/messagerie_free-ads.PNG)
