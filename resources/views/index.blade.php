@@ -53,6 +53,12 @@
         <th>
             Vendeur
         </th>
+        <th>
+            Lieu
+        </th>
+        <th>
+            Categorie
+        </th>
     </tr>
 @foreach($annonces as $p)
 
@@ -73,13 +79,19 @@
             {!! substr($p->description, 0, 50).'...' !!}
         </td>
         <td>
-            {!! $p->prix !!}
+            {!! $p->prix !!}€
         </td>
         <td>
             {!! $p->created_at !!}
         </td>
         <td>
             {!! $p->username !!}
+        </td>
+        <td>
+            {!! $p->lieu !!}
+        </td>
+        <td>
+            {!! $p->categorie !!}
         </td>
     </tr>
 

@@ -2,7 +2,10 @@
        /* $res = DB::select('select count(id) from messages where date like %0000% and id_receiver = ?', [$id]); */
         $date = DB::table('messages')
         ->where('id_receiver', '=', $id)
-        ->where('date', '=', '0000-00-00 00:00:00')
+        ->where(function($query){
+            $query->where('date', '=', '0000-00-00 00:00:00')
+                ->orWhere('date', '=', null);
+        })
         ->count();
 ?>
 <!DOCTYPE html>

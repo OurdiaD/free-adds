@@ -34,7 +34,7 @@ if (Route::currentRouteName() =='messages'): ?>
     </tr>
 @foreach($res as $p)
 
-    <tr <?php if ( $p->date == '0000-00-00 00:00:00' && Route::currentRouteName() =='messages') {echo 'class="info"';} ?>>
+    <tr <?php if ( ($p->date == '0000-00-00 00:00:00'|| $p->date == null) && Route::currentRouteName() =='messages') {echo 'class="info"';} ?>>
         <td>
             {!! Html::link('/message?id='.$p->id, $p->titre)!!}
         </td>

@@ -59,7 +59,7 @@ class IndexController extends Controller
 
         $results = DB::table('annonces')
             ->join('users', 'users.id', '=', 'annonces.user_id')
-            ->select('annonces.images', 'annonces.id', 'annonces.titre', 'annonces.description', 'annonces.prix', 'annonces.created_at', 'users.username')
+            ->select('annonces.images', 'annonces.id', 'annonces.titre', 'annonces.description', 'annonces.prix', 'annonces.created_at', 'users.username', 'annonces.lieu', 'annonces.categorie')
             ->where('annonces.activate', '=', 1)
             ->orderBy('annonces.updated_at', 'desc')
             ->paginate(10);
@@ -90,7 +90,7 @@ class IndexController extends Controller
     {
         $results = DB::table('annonces')
             ->join('users', 'users.id', '=', 'annonces.user_id')
-            ->select('annonces.images', 'annonces.id', 'annonces.titre', 'annonces.description', 'annonces.prix', 'annonces.created_at', 'users.username')
+            ->select('annonces.images', 'annonces.id', 'annonces.titre', 'annonces.description', 'annonces.prix', 'annonces.created_at', 'users.username','annonces.lieu', 'annonces.categorie')
             ->where('annonces.activate', '=', 1)
             ->where(function ($q) {
                 $nom = \Request::get('titre');
