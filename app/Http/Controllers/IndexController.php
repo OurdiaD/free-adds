@@ -111,6 +111,6 @@ class IndexController extends Controller
             ->orderBy('annonces.updated_at', 'desc')
             ->paginate(10);
             
-        return View::make('index')->with('annonces', $results);
+        return View::make('index')->with('annonces', $results->appends(Input::except('page')));
     }
 }
